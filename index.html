@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Peinture Cadieux | Peintres en bâtiment, intérieur et extérieur</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #f3f4f1;
+  --ink: #1e2b33;
+  --muted: #586670;
+  --line: #d3d8d6;
+  --blue: #2f5d7c;
+  --jaune: #f2b705;
+  --ardoise: #1e2b33;
+  --head: "Barlow Condensed", "Arial Narrow", Arial, sans-serif;
+  --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #141a1e;
+    --ink: #e8edef;
+    --muted: #9aa8b0;
+    --line: #2b363c;
+    --blue: #7fb0d1;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #141a1e;
+  --ink: #e8edef;
+  --muted: #9aa8b0;
+  --line: #2b363c;
+  --blue: #7fb0d1;
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 84px);
+  overflow-x: hidden;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 1.0625rem/1.65 var(--body);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 40;
+  background: var(--paper);
+}
+
+h1, h2, h3 {
+  font-family: var(--head);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--jaune);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.conteneur {
+  width: min(1160px, 100% - 48px);
+  margin: 0 auto;
+}
+
+/* boutons */
+.bouton {
+  display: inline-block;
+  text-decoration: none;
+  font: 600 1rem var(--body);
+  padding: 15px 26px;
+  border-radius: 6px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+/* jaune = bouton principal */
+.bouton-jaune {
+  background: var(--jaune);
+  color: #1e2b33;
+}
+
+.bouton-jaune:hover {
+  background: #ffd04a;
+}
+
+.bouton-contour {
+  border-color: currentColor;
+  color: inherit;
+}
+
+.bouton-contour:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+/* en-tête */
+header {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 50;
+  background: var(--paper);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+header.ombre {
+  border-color: var(--line);
+  box-shadow: 0 6px 20px -14px #0006;
+}
+
+header .conteneur {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font: 700 1.6rem var(--head);
+  letter-spacing: 0.01em;
+}
+
+.logo svg {
+  width: 34px;
+  height: 34px;
+}
+
+header nav {
+  display: flex;
+  gap: 30px;
+}
+
+header nav a {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+header nav a:hover {
+  color: var(--ink);
+}
+
+.lien-tel {
+  font-weight: 600;
+  text-decoration: none;
+  margin-right: 18px;
+}
+
+.droite-entete {
+  display: flex;
+  align-items: center;
+}
+
+/* accueil */
+.hero {
+  padding: 56px 0 96px;
+}
+
+.hero .conteneur {
+  display: grid;
+  grid-template-columns: 1fr 1.05fr;
+  gap: 64px;
+  align-items: center;
+}
+
+h1 {
+  font-size: clamp(3rem, 6.4vw, 5.6rem);
+  animation: monte 0.8s 0.1s both cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.intro {
+  margin: 24px 0 32px;
+  max-width: 46ch;
+  color: var(--muted);
+  font-size: 1.2rem;
+  animation: monte 0.8s 0.25s both cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.boutons-hero {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  animation: monte 0.8s 0.4s both cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* les 3 petits points sous les boutons */
+.preuves {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  margin-top: 34px;
+  font-weight: 500;
+  animation: monte 0.8s 0.55s both;
+}
+
+.preuves span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.preuves svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+
+@keyframes monte {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+/* la pièce qu'on repeint */
+.salon {
+  position: relative;
+  aspect-ratio: 6 / 5;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #e9e6e0;
+  box-shadow: 0 30px 60px -34px #1e2b3399;
+}
+
+.mur {
+  position: absolute;
+  inset: 0 0 28% 0;
+}
+
+.mur.nouveau {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.3s cubic-bezier(0.6, 0, 0.2, 1);
+}
+
+.salon.peint .mur.nouveau {
+  clip-path: inset(0);
+}
+
+.salon > svg.piece {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.rouleau {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 92px;
+  transform: translateX(-50%);
+  z-index: 3;
+  transition: left 1.3s cubic-bezier(0.6, 0, 0.2, 1), opacity 0.35s 1.2s;
+}
+
+.salon.peint .rouleau {
+  left: 100%;
+  opacity: 0;
+}
+
+.rouleau .tete-rouleau {
+  fill: var(--c, #b4b0a7);
+}
+
+.essai-couleur {
+  margin-top: 18px;
+}
+
+.essai-couleur p {
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.essai-couleur p span {
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.pastilles {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pastilles button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--line);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pastilles button:hover {
+  transform: scale(1.08);
+}
+
+.pastilles button[aria-pressed="true"] {
+  box-shadow: 0 0 0 3px var(--ink);
+}
+
+/* sections */
+section {
+  padding: 100px 0;
+}
+
+h2 {
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+}
+
+.sous-titre {
+  color: var(--muted);
+  max-width: 52ch;
+  margin-top: 14px;
+}
+
+.inclus {
+  background: #fff;
+  border-block: 1px solid var(--line);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .inclus {
+    background: #192026;
+  }
+}
+
+.inclus .conteneur {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 72px;
+}
+
+.liste-inclus {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.liste-inclus li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 18px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.liste-inclus svg {
+  width: 26px;
+  height: 26px;
+  margin-top: 2px;
+}
+
+.liste-inclus h3 {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.liste-inclus p {
+  color: var(--muted);
+}
+
+.grille-services {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 44px;
+}
+
+.carte-service {
+  border-radius: 10px;
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.carte-service.interieur {
+  background: var(--blue);
+  color: #fff;
+}
+
+.carte-service.exterieur {
+  background: var(--ardoise);
+  color: #e8edef;
+}
+
+.carte-service h3 {
+  font-size: 2.4rem;
+}
+
+.carte-service ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex: 1;
+}
+
+.carte-service li {
+  padding: 11px 0;
+  border-top: 1px solid #ffffff33;
+}
+
+.carte-service a {
+  color: var(--jaune);
+  font-weight: 600;
+  text-underline-offset: 4px;
+}
+
+.comparateur {
+  position: relative;
+  aspect-ratio: 6 / 5;
+  max-width: 860px;
+  margin-top: 44px;
+  border-radius: 10px;
+  overflow: hidden;
+  user-select: none;
+  --s: 50%;
+  box-shadow: 0 30px 60px -34px #1e2b3399;
+}
+
+.comparateur .couche {
+  position: absolute;
+  inset: 0;
+}
+
+.comparateur .mur {
+  inset: 0 0 28% 0;
+}
+
+.comparateur .mur-avant {
+  background: #cfc7b5;
+  background-image: radial-gradient(70px 26px at 18% 46%, #0000001f, transparent), radial-gradient(110px 36px at 72% 22%, #8a6d2a33, transparent), radial-gradient(50px 16px at 55% 68%, #00000018, transparent), radial-gradient(40px 40px at 90% 60%, #6f5a2a22, transparent);
+}
+
+.comparateur .mur-apres {
+  background: #2b4262;
+}
+
+.comparateur .couche.a {
+  clip-path: inset(0 0 0 var(--s));
+}
+
+.comparateur input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  margin: 0;
+  z-index: 4;
+}
+
+.comparateur .trait {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: var(--s);
+  width: 3px;
+  margin-left: -1.5px;
+  background: #fff;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.comparateur .trait::after {
+  content: "\2194";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 46px;
+  margin: -23px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  display: grid;
+  place-items: center;
+  font-size: 1.3rem;
+  box-shadow: 0 6px 18px #0004;
+}
+
+.comparateur input:focus-visible ~ .trait::after {
+  outline: 3px solid var(--jaune);
+}
+
+.etiquette {
+  position: absolute;
+  bottom: 16px;
+  z-index: 3;
+  background: #1e2b33dd;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 99px;
+  pointer-events: none;
+}
+
+.etiquette.gauche {
+  left: 16px;
+}
+
+.etiquette.droite {
+  right: 16px;
+}
+
+.section-etapes ol {
+  list-style: none;
+  margin: 48px 0 0;
+  padding: 0;
+  max-width: 760px;
+}
+
+.section-etapes li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 24px;
+  padding-bottom: 44px;
+}
+
+.section-etapes li::before {
+  content: "";
+  position: absolute;
+  left: 27px;
+  top: 56px;
+  bottom: 0;
+  width: 2px;
+  background: var(--line);
+}
+
+.section-etapes li:last-child {
+  padding-bottom: 0;
+}
+
+.section-etapes li:last-child::before {
+  display: none;
+}
+
+/* le rond avec le numéro de l'étape */
+.rond {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  display: grid;
+  place-items: center;
+  font: 700 1.5rem var(--head);
+  transition: background 0.5s, border-color 0.5s, color 0.5s;
+}
+
+.section-etapes li.actif .rond {
+  background: var(--jaune);
+  border-color: var(--jaune);
+  color: #1e2b33;
+}
+
+.section-etapes h3 {
+  font-size: 1.8rem;
+  margin: 8px 0 4px;
+}
+
+.section-etapes p {
+  color: var(--muted);
+  max-width: 52ch;
+}
+
+.section-soumission {
+  background: var(--ardoise);
+  color: #e8edef;
+}
+
+.section-soumission .conteneur {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.section-soumission h2 {
+  color: #fff;
+}
+
+.section-soumission .sous-titre {
+  color: #aebbc2;
+}
+
+.section-soumission .gros-tel {
+  display: inline-block;
+  margin-top: 28px;
+  font: 700 2.4rem var(--head);
+  color: var(--jaune);
+  text-decoration: none;
+}
+
+form {
+  background: #fff;
+  color: #1e2b33;
+  border-radius: 10px;
+  padding: 36px;
+  display: grid;
+  gap: 18px;
+}
+
+.deux-colonnes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+label {
+  display: block;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+input:not([type=range]), select, textarea {
+  width: 100%;
+  margin-top: 6px;
+  font: 400 1rem var(--body);
+  padding: 12px 14px;
+  border: 2px solid #cfd6d4;
+  border-radius: 6px;
+  background: #fff;
+  color: #1e2b33;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:not([type=range]):focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px #2f5d7c33;
+}
+
+textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+#msg {
+  min-height: 1.5em;
+  font-weight: 500;
+}
+
+#msg.erreur {
+  color: #b3261e;
+}
+
+#ok {
+  display: none;
+  text-align: center;
+  padding: 28px 8px;
+}
+
+#ok svg {
+  width: 64px;
+  height: 64px;
+}
+
+#ok path {
+  fill: none;
+  stroke: #2f5d7c;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+}
+
+form.envoye > :not(#ok) {
+  display: none;
+}
+
+form.envoye #ok {
+  display: block;
+}
+
+form.envoye #ok path {
+  animation: trace 0.6s 0.1s forwards;
+}
+
+@keyframes trace {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+#ok h3 {
+  font-size: 2rem;
+  margin: 12px 0 6px;
+}
+
+/* bas de page */
+/* footer { border-top: 4px solid #f2b705; }  -- essayé, pas gardé */
+footer {
+  background: #141b20;
+  color: #9fadb4;
+  padding: 44px 0;
+  font-size: 0.95rem;
+}
+
+footer .conteneur {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+footer a {
+  text-decoration: none;
+  margin-left: 22px;
+}
+
+/* barre Appeler / Soumission en bas sur mobile */
+.barre-mobile {
+  display: none;
+}
+
+/* téléphone et tablette */
+@media (max-width: 900px) {
+  header nav, .lien-tel {
+    display: none;
+  }
+  .hero {
+    padding: 36px 0 64px;
+  }
+  .hero .conteneur, .inclus .conteneur, .grille-services, .section-soumission .conteneur {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  section {
+    padding: 70px 0;
+  }
+  .deux-colonnes {
+    grid-template-columns: 1fr;
+  }
+  .carte-service {
+    padding: 32px 26px;
+  }
+  .barre-mobile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 45;
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+    gap: 10px;
+  }
+  .barre-mobile .bouton {
+    text-align: center;
+    padding: 13px 10px;
+  }
+  footer {
+    padding-bottom: 96px;
+  }
+}
+
+/* si la personne veut moins d'animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .rouleau {
+    display: none;
+  }
+}
+
+/* les deux illustrations du comparateur */
+.comparateur svg.piece {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+</style>
+</head>
+<body>
+  <!-- Symbole partagé : la pièce (plancher, plinthe, fenêtre, cadre, sofa), sans les murs -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="piece" viewBox="0 0 600 500">
+      <rect y="360" width="600" height="140" fill="#b89b78"></rect>
+      <path d="M0 392h600M0 430h600M0 468h600" stroke="#00000022" stroke-width="2"></path>
+      <rect y="348" width="600" height="14" fill="#f4f2ee"></rect>
+      <rect x="378" y="84" width="170" height="186" rx="4" fill="#f4f2ee"></rect>
+      <rect x="390" y="96" width="146" height="162" fill="#cfe2ec"></rect>
+      <path d="M463 96v162M390 177h146" stroke="#f4f2ee" stroke-width="6"></path>
+      <rect x="84" y="78" width="160" height="96" fill="#f4f2ee"></rect>
+      <rect x="94" y="88" width="140" height="76" fill="#d8d3c8"></rect>
+      <path d="M94 150l40-34 30 24 28-30 42 40v14H94z" fill="#9aa8a2"></path>
+      <rect x="60" y="250" width="286" height="104" rx="14" fill="#56626b"></rect>
+      <rect x="76" y="226" width="254" height="60" rx="12" fill="#66737c"></rect>
+      <rect x="48" y="262" width="44" height="92" rx="12" fill="#4a555d"></rect>
+      <rect x="314" y="262" width="44" height="92" rx="12" fill="#4a555d"></rect>
+      <rect x="70" y="354" width="10" height="10" fill="#2c3338"></rect>
+      <rect x="326" y="354" width="10" height="10" fill="#2c3338"></rect>
+    </symbol>
+  </svg>
+  <!-- en-tête collant -->
+  <header id="top">
+    <div class="conteneur">
+      <a class="logo" href="#haut" aria-label="Peinture Cadieux, accueil">
+        <svg viewBox="0 0 34 34" aria-hidden="true">
+          <rect width="34" height="34" rx="6" fill="#f2b705"></rect>
+          <rect x="6" y="7" width="22" height="9" rx="2" fill="#1e2b33"></rect>
+          <path d="M28 11.5h2.5v8H17v4" fill="none" stroke="#1e2b33" stroke-width="2.4" stroke-linejoin="round"></path>
+          <rect x="15" y="22" width="4.5" height="7" rx="1.5" fill="#1e2b33"></rect>
+        </svg>
+        Peinture Cadieux
+      </a>
+      <nav aria-label="Principal">
+        <a href="#inclus">Inclus</a>
+        <a href="#services">Services</a>
+        <a href="#avant-apres">Avant et après</a>
+        <a href="#etapes">Étapes</a>
+      </nav>
+      <div class="droite-entete">
+        <a class="lien-tel" href="tel:+14185550100">418 555-0100</a>
+        <a class="bouton bouton-jaune" href="#soumission">Soumission gratuite</a>
+      </div>
+    </div>
+  </header>
+  <!-- contenu principal -->
+  <main id="haut">
+    <!-- accueil : titre + démo de couleur -->
+    <section class="hero">
+      <div class="conteneur">
+        <div>
+          <h1>Repeints comme il faut. Propres chaque soir.</h1>
+          <p class="intro">Peintres en bâtiment pour maisons, condos et chalets. Estimation gratuite à domicile, prix ferme remis sur place.</p>
+          <div class="boutons-hero">
+            <a class="bouton bouton-jaune" href="#soumission">Demander une soumission</a>
+            <a class="bouton bouton-contour" href="tel:+14185550100">Appeler le 418 555-0100</a>
+          </div>
+          <div class="preuves">
+            <span>
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M4 10.5l4 4 8-9" fill="none" stroke="#2f5d7c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              Estimation gratuite
+            </span>
+            <span>
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M4 10.5l4 4 8-9" fill="none" stroke="#2f5d7c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              Prix ferme
+            </span>
+            <span>
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M4 10.5l4 4 8-9" fill="none" stroke="#2f5d7c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              Maison propre chaque soir
+            </span>
+          </div>
+        </div>
+        <div>
+          <div class="salon" id="room" role="img" aria-label="Salon dont le mur se repeint à la couleur choisie">
+            <div class="mur ancien" id="wOld" style="background:#ece9e3"></div>
+            <div class="mur nouveau" id="wNew"></div>
+            <svg class="piece" viewBox="0 0 600 500" aria-hidden="true">
+              <use href="#piece"></use>
+            </svg>
+            <svg class="rouleau" id="roller" viewBox="0 0 92 120" aria-hidden="true">
+              <rect class="tete-rouleau" x="4" y="4" width="76" height="30" rx="8"></rect>
+              <path d="M80 19h8v30H46v14" fill="none" stroke="#1e2b33" stroke-width="5" stroke-linejoin="round"></path>
+              <rect x="39" y="62" width="14" height="48" rx="5" fill="#1e2b33"></rect>
+            </svg>
+          </div>
+          <div class="essai-couleur">
+            <p>Essayez une couleur <span id="nomCouleur"></span></p>
+            <div class="pastilles" id="sw"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ce qui est inclus -->
+    <section class="inclus" id="inclus">
+      <div class="conteneur">
+        <div>
+          <h2>Inclus dans chaque projet</h2>
+          <p class="sous-titre">Pas de frais cachés, pas de surprise le jour de la facture.</p>
+        </div>
+        <ul class="liste-inclus">
+          <li>
+            <svg viewBox="0 0 26 26" aria-hidden="true">
+              <path d="M3 12L13 4l10 8M6 11v11h14V11" fill="none" stroke="#2f5d7c" stroke-width="2.2" stroke-linejoin="round"></path>
+            </svg>
+            <div>
+              <h3>Estimation gratuite à domicile</h3>
+              <p>On se déplace, on prend les mesures et on discute de vos couleurs et de vos attentes.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 26 26" aria-hidden="true">
+              <rect x="4" y="3" width="18" height="20" rx="2" fill="none" stroke="#2f5d7c" stroke-width="2.2"></rect>
+              <path d="M8 9h10M8 14h10M8 19h5" stroke="#2f5d7c" stroke-width="2.2" stroke-linecap="round"></path>
+            </svg>
+            <div>
+              <h3>Prix ferme, remis sur place</h3>
+              <p>Le montant de la soumission est celui que vous payez.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 26 26" aria-hidden="true">
+              <path d="M13 3l9 4v6c0 5-4 8.500-9 10-5-1.500-9-5-9-10V7z" fill="none" stroke="#2f5d7c" stroke-width="2.2" stroke-linejoin="round"></path>
+            </svg>
+            <div>
+              <h3>Meubles et planchers protégés</h3>
+              <p>Tout est couvert avant d’ouvrir un pot de peinture.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 26 26" aria-hidden="true">
+              <path d="M5 21l8-16 8 16zM13 11v5" fill="none" stroke="#2f5d7c" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"></path>
+            </svg>
+            <div>
+              <h3>Maison propre chaque soir</h3>
+              <p>On nettoie en fin de journée, vous pouvez continuer à vivre chez vous.</p>
+            </div>
+          </li>
+          <li>
+            <svg viewBox="0 0 26 26" aria-hidden="true">
+              <path d="M13 4c4 5 7 8 7 12a7 7 0 0 1-14 0c0-4 3-7 7-12z" fill="none" stroke="#2f5d7c" stroke-width="2.2" stroke-linejoin="round"></path>
+            </svg>
+            <div>
+              <h3>Produits haut de gamme</h3>
+              <p>Des peintures professionnelles, choisies pour durer et se laver.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- services -->
+    <section id="services">
+      <div class="conteneur">
+        <h2>Intérieur ou extérieur</h2>
+        <p class="sous-titre">Une seule équipe, du premier coup de pinceau à la dernière retouche.</p>
+        <div class="grille-services">
+          <div class="carte-service interieur">
+            <h3>Peinture intérieure</h3>
+            <ul>
+              <li>Murs et plafonds</li>
+              <li>Boiseries, portes et moulures</li>
+              <li>Armoires de cuisine</li>
+              <li>Maison complète, étage par étage</li>
+            </ul>
+            <a href="#soumission" data-type="Peinture intérieure">Demander une soumission intérieure</a>
+          </div>
+          <div class="carte-service exterieur">
+            <h3>Peinture extérieure</h3>
+            <ul>
+              <li>Revêtement et briques</li>
+              <li>Balcons, galeries et clôtures</li>
+              <li>Portes et fenêtres</li>
+            </ul>
+            <a href="#soumission" data-type="Peinture extérieure">Demander une soumission extérieure</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- avant / après -->
+    <section id="avant-apres" style="padding-top:0">
+      <div class="conteneur">
+        <h2>Avant et après</h2>
+        <p class="sous-titre">Glissez pour comparer un mur fatigué et le même mur repeint.</p>
+        <!-- Illustration de démonstration : remplacer par de vraies photos avant/après de vos chantiers -->
+        <div class="comparateur" id="ba">
+          <div class="couche b">
+            <div class="mur mur-avant"></div>
+            <svg class="piece" viewBox="0 0 600 500" aria-hidden="true">
+              <use href="#piece"></use>
+            </svg>
+          </div>
+          <div class="couche a">
+            <div class="mur mur-apres"></div>
+            <svg class="piece" viewBox="0 0 600 500" aria-hidden="true">
+              <use href="#piece"></use>
+            </svg>
+          </div>
+          <span class="etiquette gauche">Avant</span>
+          <span class="etiquette droite">Après</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Comparer avant et après" id="baIn">
+          <div class="trait"></div>
+        </div>
+      </div>
+    </section>
+    <!-- les étapes -->
+    <section class="section-etapes" id="etapes" style="padding-top:0">
+      <div class="conteneur">
+        <h2>Comment ça se passe</h2>
+        <ol id="steps">
+          <li>
+            <div class="rond">1</div>
+            <div>
+              <h3>Visite et estimation</h3>
+              <p>On passe chez vous, on regarde l’état des surfaces et on parle couleurs.</p>
+            </div>
+          </li>
+          <li>
+            <div class="rond">2</div>
+            <div>
+              <h3>Prix ferme</h3>
+              <p>Vous recevez la soumission sur place, avec les dates possibles.</p>
+            </div>
+          </li>
+          <li>
+            <div class="rond">3</div>
+            <div>
+              <h3>Préparation et protection</h3>
+              <p>Réparations, sablage, apprêt. Meubles et planchers couverts.</p>
+            </div>
+          </li>
+          <li>
+            <div class="rond">4</div>
+            <div>
+              <h3>Peinture et finition</h3>
+              <p>Application soignée, nettoyage chaque soir et inspection finale avec vous.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+    <!-- formulaire de soumission -->
+    <section class="section-soumission" id="soumission">
+      <div class="conteneur">
+        <div>
+          <h2>Demandez votre soumission gratuite</h2>
+          <p class="sous-titre">Dites-nous où et quoi peindre. On vous rappelle rapidement pour fixer la visite.</p>
+          <a class="gros-tel" href="tel:+14185550100">418 555-0100</a>
+        </div>
+        <form id="f" novalidate>
+          <div class="deux-colonnes">
+            <label>
+              Nom
+              <input name="nom" autocomplete="name" required>
+            </label>
+            <label>
+              Téléphone
+              <input name="tel" type="tel" autocomplete="tel" required>
+            </label>
+          </div>
+          <label>
+            Courriel
+            <input name="courriel" type="email" autocomplete="email">
+          </label>
+          <div class="deux-colonnes">
+            <label>
+              Type de projet
+              <select name="type" id="type">
+                <option>Peinture intérieure</option>
+                <option>Peinture extérieure</option>
+                <option>Maison complète</option>
+                <option>Autre</option>
+              </select>
+            </label>
+            <label>
+              Ville ou secteur
+              <input name="ville" autocomplete="address-level2">
+            </label>
+          </div>
+          <label>
+            Détails du projet
+            <textarea name="note"></textarea>
+          </label>
+          <p id="msg" role="status"></p>
+          <button class="bouton bouton-jaune" type="submit">Demander ma soumission</button>
+          <div id="ok" role="status">
+            <svg viewBox="0 0 64 64" aria-hidden="true">
+              <circle cx="32" cy="32" r="28" fill="none" stroke="#d3d8d6" stroke-width="4"></circle>
+              <path d="M19 33l9 9 17-19"></path>
+            </svg>
+            <h3>Demande prête</h3>
+            <p>Votre application courriel s’ouvre avec les détails. Il ne reste qu’à envoyer.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  <!-- bas de page -->
+  <footer>
+    <div class="conteneur">
+      <p>© 2026 Peinture Cadieux. Tous droits réservés.</p>
+      <p><a href="tel:+14185550100">418 555-0100</a><a href="#soumission">Soumission gratuite</a></p>
+    </div>
+  </footer>
+  <!-- barre fixe en bas (mobile seulement) -->
+  <div class="barre-mobile">
+    <a class="bouton bouton-contour" href="tel:+14185550100">Appeler</a>
+    <a class="bouton bouton-jaune" href="#soumission">Soumission</a>
+  </div>
+
+<script>
+// ===== Peinture Cadieux : script de la page =====
+
+// les couleurs qu'on propose dans la démo (vrais noms de peinture)
+var couleurs = [
+  { nom: 'Gris galet', c: '#b4b0a7' },
+  { nom: 'Bleu marine', c: '#2b4262' },
+  { nom: 'Vert sauge', c: '#8fa58c' },
+  { nom: 'Blanc chantilly', c: '#eeece6' },
+  { nom: 'Argile douce', c: '#b98f78' },
+  { nom: 'Anthracite', c: '#3b4044' }
+];
+
+// TODO: remplacer par le vrai courriel du peintre
+var COURRIEL = 'soumission@peinturecadieux.ca';
+
+// si la personne veut moins d'animations on saute le rouleau
+var moinsAnim = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+
+// ---------- la pièce qui se repeint ----------
+var salon = document.getElementById('room');
+var murAncien = document.getElementById('wOld');
+var murNouveau = document.getElementById('wNew');
+var rouleau = document.getElementById('roller');
+var pastilles = document.getElementById('sw');
+var nomCouleur = document.getElementById('nomCouleur');
+
+// au départ le mur est blanc (apprêt)
+var couleurActuelle = '#ece9e3';
+
+function peindre(i) {
+  var choix = couleurs[i];
+
+  // l'ancienne couleur reste dessous, la nouvelle la recouvre de gauche à droite
+  murAncien.style.background = couleurActuelle;
+  murNouveau.style.background = choix.c;
+  rouleau.style.setProperty('--c', choix.c);
+
+  if (moinsAnim) {
+    salon.classList.add('peint');
+  } else {
+    // on remet tout à zéro SANS transition, puis on relance
+    murNouveau.style.transition = 'none';
+    rouleau.style.transition = 'none';
+    salon.classList.remove('peint');
+    void salon.offsetWidth;   // force le navigateur a recalculer
+    murNouveau.style.transition = '';
+    rouleau.style.transition = '';
+    salon.classList.add('peint');
+  }
+
+  couleurActuelle = choix.c;
+  nomCouleur.textContent = '(' + choix.nom + ')';
+
+  // le bon rond est sélectionné
+  for (var k = 0; k < pastilles.children.length; k++) {
+    pastilles.children[k].setAttribute('aria-pressed', k === i);
+  }
+}
+
+// on crée un bouton rond par couleur
+couleurs.forEach(function (couleur, i) {
+  var bouton = document.createElement('button');
+  bouton.type = 'button';
+  bouton.style.background = couleur.c;
+  bouton.setAttribute('aria-label', couleur.nom);
+  bouton.setAttribute('aria-pressed', 'false');
+  bouton.onclick = function () {
+    peindre(i);
+  };
+  pastilles.appendChild(bouton);
+});
+
+// premier coup de rouleau au chargement (petit délai pour que la page apparaisse d'abord)
+setTimeout(function () {
+  peindre(0);
+}, moinsAnim ? 0 : 700);
+
+
+// ---------- l'en-tête prend une ombre quand on scroll ----------
+var entete = document.getElementById('top');
+
+window.addEventListener('scroll', function () {
+  entete.classList.toggle('ombre', window.scrollY > 10);
+}, { passive: true });
+
+
+// ---------- comparateur avant / après ----------
+var comparateur = document.getElementById('ba');
+
+document.getElementById('baIn').addEventListener('input', function (e) {
+  // la valeur du curseur (0 à 100) devient la position de la séparation
+  comparateur.style.setProperty('--s', e.target.value + '%');
+});
+
+
+// ---------- étapes : le rond devient jaune quand on arrive dessus ----------
+var observateur = new IntersectionObserver(function (entrees) {
+  entrees.forEach(function (entree) {
+    if (entree.isIntersecting) {
+        entree.target.classList.add('actif');
+        observateur.unobserve(entree.target);
+    }
+  });
+}, { threshold: 0.6 });
+
+document.querySelectorAll('#steps li').forEach(function (etape) {
+  observateur.observe(etape);
+});
+
+
+// ---------- les liens des services choisissent le bon type dans le formulaire ----------
+document.querySelectorAll('[data-type]').forEach(function (lien) {
+  lien.addEventListener('click', function () {
+    document.getElementById('type').value = lien.dataset.type;
+  });
+});
+
+
+// ---------- formulaire de soumission ----------
+// la page n'a pas de serveur alors on prépare un courriel déjà rempli
+var formulaire = document.getElementById('f');
+var message = document.getElementById('msg');
+
+formulaire.addEventListener('submit', function (e) {
+  e.preventDefault();
+  message.className = '';
+
+  var nom = formulaire.nom.value.trim();
+  var tel = formulaire.tel.value.trim();
+
+  // le nom et un téléphone de 10 chiffres minimum sont obligatoires
+  if (!nom || tel.replace(/\D/g, '').length < 10) {
+    message.className = 'erreur';
+    message.textContent = 'Ajoutez votre nom et un numéro de téléphone valide.';
+    return;
+  }
+
+  var texte = 'Nom : ' + nom
+    + '\nTéléphone : ' + tel
+    + '\nCourriel : ' + formulaire.courriel.value
+    + '\nProjet : ' + formulaire.type.value
+    + '\nSecteur : ' + formulaire.ville.value
+    + '\n\n' + formulaire.note.value;
+
+  // on montre la confirmation tout de suite...
+  formulaire.classList.add('envoye');
+
+  // ...et on ouvre le courriel juste après pour que le crochet ait le temps de se dessiner
+  setTimeout(function () {
+    window.location.href = 'mailto:' + COURRIEL
+      + '?subject=' + encodeURIComponent('Demande de soumission : ' + nom)
+      + '&body=' + encodeURIComponent(texte);
+  }, 800);
+});
+
+</script>
+</body>
+</html>
